@@ -13,4 +13,11 @@ parallelism.default: 1
 taskmanager.numberOfTaskSlots: 4
 web.submit.enable: true
 logger.zookeeper.level: INFO
-state.checkpoints.dir: s3://checkpoints/
+# checkpointing configurations
+state.backend: filesystem
+state.checkpoints.dir: s3a://checkpoints/flink/
+state.backend.fs.checkpointdir: s3a://checkpoints/flink/
+s3.access-key: admin
+s3.secret-key: rootpass123
+s3.endpoint: http://minio:9000
+s3.path.style.access: true
