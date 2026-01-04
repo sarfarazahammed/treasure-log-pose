@@ -1,0 +1,12 @@
+[versions]
+flinkVersion="2.2.0"
+
+[libraries]
+# Logging
+slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.17"  }
+logback-classic = { module = "ch.qos.logback:logback-classic", version = "1.5.23"  }
+
+# flink related
+flink-core = { module = "org.apache.flink:flink-core", version.ref = "flinkVersion" }
+flink-streaming-java = { module = "org.apache.flink:flink-streaming-java", version.ref = "flinkVersion" }
+flink-clients = { module = 'org.apache.flink:flink-clients', version.ref = "flinkVersion" }
