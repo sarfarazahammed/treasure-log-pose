@@ -1,5 +1,8 @@
 blob.server.port: 6124
 taskmanager.memory.process.size: 1728m
+s3a.secret-key: rootpass123
+s3a.endpoint: http://minio:9000
+s3a.access-key: admin
 logger.kafka.level: INFO
 jobmanager.rpc.address: jobmanager
 web.cancel.enable: true
@@ -13,4 +16,8 @@ parallelism.default: 1
 taskmanager.numberOfTaskSlots: 4
 web.submit.enable: true
 logger.zookeeper.level: INFO
-state.checkpoints.dir: s3://checkpoints/
+# checkpointing configurations
+state.backend: filesystem
+state.checkpoints.dir: s3a://checkpoints/flink/
+state.backend.fs.checkpointdir: s3a://checkpoints/flink/
+s3a.path.style.access: true
