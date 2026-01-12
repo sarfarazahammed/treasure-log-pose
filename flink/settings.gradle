@@ -1,3 +1,5 @@
 rootProject.name = 'flink'
 
 include 'datastream'
+include 'table-api'
+include 'flink-hollow'

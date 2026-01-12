@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.treasurelogpose'
+version = 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation libs.slf4j.api
+    implementation libs.logback.classic
+
+    // PRIMARY dependencies required to start with flink streaming
+    implementation libs.flink.core
+    implementation libs.flink.streaming.java
+
+    // this provide java classes for streaming like StreamExecutionEnvironment, DataStream API, etc.
+    implementation libs.flink.clients // this provide the ExecutorFactory required to execute the application
+
+    // this contains the Table/SQL API for writing table programs that interact with other Flink APIs
+    implementation libs.flink.table.api.java.bridge
+
+    // this connects Table/SQL API and runtime.
+    // It is responsible for translating and optimizing a table program into a Flink pipeline.
+    implementation libs.flink.table.planner
+
+
+    implementation libs.netflix.hollow
+
+
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
